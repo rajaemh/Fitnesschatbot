@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+import random
+
+import requests
+ 
+def ask_gpt(question):
+
+    api_key = "please enter your API key"
+
+    headers = {
+
+        "Authorization": "Bearer {}".format(api_key),
+
+        "Content-Type": "application/json"
+
+    }
+
+    response = requests.post(
+
+        "https://api.openai.com/v1/completions",
+
+        headers=headers,
+
+        json={
+
+            "model": "text-davinci-003",
+
+            "prompt": question,
+
+            "max_tokens": 100
+
+        }
+
+    )
+
+    data = response.json()
+
+    return data['choices'][0]['text'].strip()
+ 
+def main():
+
+    while True:
+
+        question = input("Posez-moi une question sur le fitness ou le bien-être : ")
+
+        if question.lower() == 'exit':
+
+            print("Merci d'avoir utilisé le chatbot. À bientôt !")
+
+            break
+
+        elif question == "Quels sont les meilleurs exercices pour perdre du poids ?":
+
+            responses = [
+
+                "Les exercices de cardio comme la course à pied, le vélo et la natation sont excellents pour brûler des calories et perdre du poids."
+
+            ]
+
+            print(random.choice(responses))
+
+        elif question == "Quels sont les avantages de l'exercice physique ?":
+
+            responses = [
+
+                "Les avantages de l'exercice physique comprennent l'amélioration de la santé cardiovasculaire, le renforcement des muscles et l'amélioration de l'humeur."
+
+            ]
+
+            print(random.choice(responses))
+
+        elif question == "Quels aliments sont bons pour la santé ?":
+
+            responses = [
+
+                "Des aliments riches en nutriments tels que les fruits, les légumes, les grains entiers et les protéines maigres sont bons pour la santé."
+
+            ]
+
+            print(random.choice(responses))
+
+        else:
+
+            print("Réponse de l'API:", ask_gpt(question))
+ 
+if __name__ == "__main__":
+
+    main()
+
+
