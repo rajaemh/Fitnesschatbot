@@ -1,5 +1,6 @@
 README - Chatbot Fitness et Bien-être
-Rajae Mahdaoui & Amina Fqih Berrada 
+by : Rajae Mahdaoui & Amina Fqih Berrada 
+
 Ce projet consiste en un Chatbot simple qui fournit des informations sur le fitness et le bien-être. Le Chatbot a été développé en utilisant l'API de ChatGPT pour générer des réponses en fonction des questions posées par l'utilisateur.
 Configuration de l'environnement 
 1. Assurez-vous d'avoir Python installé sur votre système. 
